@@ -1,0 +1,52 @@
+* {
+
+	margin:0;
+	padding:0;
+	
+}
+
+.simu-container {
+	display:flex;
+	border:2px solid black;
+	background-color:#FAD5A5;
+	width:100vw;
+	height:50vh;
+	
+}
+
+.tank-container {
+	
+	position:absolute;
+}
+
+.controls {
+	margin-top:2rem;
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	background-color:black;
+	width:100%;
+}
+
+.arrow {
+	margin:1rem;
+	width:3rem;
+	height:3rem;
+	border-radius:1rem;
+}
+
+.custom-ms {
+	margin-top:0.1em;
+}
+
+#rotate-right,#rotate-left {
+	background-color:orange;
+}
+
+.arrow {
+	background-color:green;
+}
+
+#fire {
+	background-color:red;
+}

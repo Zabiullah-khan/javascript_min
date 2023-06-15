@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, user-scalable=no">
+<link rel='stylesheet' href='tanksimu.css'>
+<title>tank simulator</title>
+</head>
+<body>
+<content>
+
+<div class='simu-container'>
+
+<div id='tank' class='tank-container'>
+<img id='tank-img' style='width:8rem;transform: rotate(47deg);' src='media/tank.png'>
+</div>
+
+</div>
+
+<div class='controls'>
+
+<div class='sec'>
+<button id='rotate-right' class='arrow'>Rotate Right</button>
+<button id='move-up' class='arrow'>Move Up</button>
+<button id='rotate-left' class='arrow'>Rotate Left</button>
+</div>
+
+</div>
+
+<div class='controls custom-ms'>
+<div class='sec'>
+<button id='move-left' class='arrow'>Move Left</button>
+<button id='fire' class='arrow'>Fire</button>
+<button id='move-right' class='arrow'>Move Right</button>
+</div>
+</div>
+
+<div class='controls custom-ms'>
+<div class='sec'>
+<button id='move-down' class='arrow'>Move Down</button>
+</div>
+</div>
+
+</content>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+<script src='js/jquery.min.js'> </script>
+<script src='js/tanksimu.js'> </script>
+</body>
+</html>
