@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Cryto App</title>
+	 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+</head>
+<body>
+<header>
+<style>
+.custom-container {
+	display:flex;
+	justify-content:center;
+	position:absolute;
+	margin-top:15rem;
+	width:100%;
+	height:5vh;
+	background-color:yellow;
+}
+
+body {
+	background-color:#4ed5ed;
+}
+</style>
+</header>
+
+<content>
+<div id='hidden' class='container-fluid' style='postition:absolute;'>
+<div class='custom-container'>
+<h3 style='font-weight:bolder;font-family:ariel;'>
+Loading Please Wait....!
+</h3>
+</div>
+</div>
+<div class='container mt-5' style='background-color:crimson;'>
+	<table class='table'>
+		<tr>
+			<th>Crypto</th>
+			<th> Value </th>
+		</tr>
+			
+		<tr>
+			<th id='crypto1'>0</th>
+			<th id='values1'> 0 </th>
+		</tr>
+		
+		<tr>
+			<th id='crypto2'>0</th>
+			<th id='values2'> 0 </th>
+		</tr>
+		
+		<tr>
+			<th id='crypto3'>0</th>
+			<th id='values3'> 0 </th>
+		</tr>
+		
+		<tr>
+			<th id='crypto4'>0</th>
+			<th id='values4'> 0 </th>
+		</tr>
+		
+		<tr>
+			<th id='crypto5'>0</th>
+			<th id='values5'> 0 </th>
+		</tr>
+		
+	</table>
+</div>
+
+<div class='container mt-5' style='background-color:black;'>
+<h3>Bitcoin</h3>
+<div style='width:10px;height:10px;background-color:green;' id='cryptab1'> </div>
+
+<h3 class='mt-2'>Ethereum</h3>
+<div style='width:10px;height:10px;background-color:blue;' id='cryptab2'> </div>
+
+<h3 class='mt-2'>Tether</h3>
+<div style='width:10px;height:10px;background-color:yellow;' id='cryptab3'> </div>
+
+<h3 class='mt-2'>Binance</h3>
+<div style='width:10px;height:10px;background-color:red;' id='cryptab4'> </div>
+
+<h3 class='mt-2'>USD</h3>
+<div style='width:10px;height:10px;background-color:violet;' id='cryptab5'> </div>
+<a href='' style='float:right;position:relative;'>@EnterBit Tech #MuhammedZabiullahKhan</a>
+</div>
+</content>
+
+	 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+	 
+	 <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+	 
+	 
+	<script>
+		var cryptab1=document.getElementById('cryptab1')
+		var cryptab2=document.getElementById('cryptab2')
+		var cryptab3=document.getElementById('cryptab3')
+		var cryptab4=document.getElementById('cryptab4')
+		var cryptab5=document.getElementById('cryptab5')
+		
+		var hidden = document.getElementById('hidden')
+		
+		var crypto1 = document.getElementById('crypto1');
+		var crypto2 = document.getElementById('crypto2');
+		var crypto3 = document.getElementById('crypto3');
+		var crypto4 = document.getElementById('crypto4');
+		var crypto5 = document.getElementById('crypto5');
+		
+		var values1 = document.getElementById('values1');
+		var values2 = document.getElementById('values2');
+		var values3 = document.getElementById('values3');
+		var values4 = document.getElementById('values4');
+		var values5 = document.getElementById('values5');
+		
+		
+		function ajax() {
+			var xhr = new XMLHttpRequest()
+			hidden.remove()
+			xhr.open('GET','https://api.coincap.io/v2/assets',true)
+			
+			/***xhr.setRequestHeader('Accept','application/json')
+			xhr.setRequestHeader('Access-Control-Allow-Origin','https://api.coincap.io/v2/assets')**/	
+			xhr.onreadystatechange= ()=>{
+			if (xhr.readyState===XMLHttpRequest.DONE) {
+				if (xhr.status === 200) {
+					var data=JSON.parse(xhr.responseText)
+					
+					crypto1.innerHTML=data['data'][0]['id']
+					crypto2.innerHTML=data['data'][1]['id']
+					crypto3.innerHTML=data['data'][2]['id']
+					crypto4.innerHTML=data['data'][3]['id']
+					crypto5.innerHTML=data['data'][4]['id']
+					
+					values1.innerHTML=data['data'][0]['priceUsd']
+					values2.innerHTML=data['data'][1]['priceUsd']
+					values3.innerHTML=data['data'][2]['priceUsd']
+					values4.innerHTML=data['data'][3]['priceUsd']
+					values5.innerHTML=data['data'][4]['priceUsd']
+					
+					cap1=(Math.round(data['data'][0]['priceUsd']))
+					cap2=(Math.round(data['data'][1]['priceUsd']))
+					cap3=(Math.round(data['data'][2]['priceUsd']))
+					cap4=(Math.round(data['data'][3]['priceUsd']))
+					cap5=(Math.round(data['data'][4]['priceUsd']))
+					
+					var screenWidth= window.innerWidth || document.documentElement.clientwidth || document.body.clientWidth
+					
+					var widthPercentage = cap1/10000*100;
+					var widthPercentage1 = cap2/10000*100;
+					var widthPercentage2 = cap3/10000*100;
+					var widthPercentage3 = cap4/10000*100;
+					var widthPercentage4= cap5/10000*100;
+					
+					var divWidth = Math.min(screenWidth,widthPercentage)+'px'
+					var divWidth1 = Math.min(screenWidth,widthPercentage1)+'px'
+					var divWidth2 = Math.min(screenWidth,widthPercentage2)+'px'
+					var divWidth3 = Math.min(screenWidth,widthPercentage3)+'px'
+					var divWidth4= Math.min(screenWidth,widthPercentage4)+'px'
+					
+					cryptab1.style.width=divWidth;
+					cryptab2.style.width=divWidth1;
+					cryptab3.style.width=divWidth2;
+					cryptab4.style.width=divWidth3;
+					cryptab5.style.width=divWidth4;
+					
+					
+				
+					
+				}
+				
+				else {
+					console.log(this.status)
+				}
+			}
+			
+			else {
+				console.log('Problem in Request')
+			}
+		
+		}
+		xhr.send()
+		}setInterval(ajax,5000)
+	</script>
+</body>
+</html>
